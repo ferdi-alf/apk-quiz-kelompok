@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/models/sayuran_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,11 +20,37 @@ class HomeScreen extends StatelessWidget {
             height: 17,
           ),
           _card(),
-          const SizedBox(height: 21),
-          _search()
+          const SizedBox(height: 20),
+          _search(),
+          const SizedBox(height: 20),
+          _sayuran()
         ],
       ),
     ));
+  }
+
+  ListView _sayuran() {
+    return ListView.separated(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) => Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFF353854).withOpacity(.12),
+                        blurRadius: 30,
+                        offset: const Offset(0, 2))
+                  ]),
+                  child: Row(children: [
+                    Image.asset('assets/images/$')
+                  ],),
+            ),
+        separatorBuilder: (context, index) => SizedBox(height: 11),
+        itemCount: sayuran.length);
   }
 
   Padding _search() {
